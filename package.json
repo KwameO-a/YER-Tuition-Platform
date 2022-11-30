@@ -1,0 +1,36 @@
+{
+  "name": "01-login",
+  "version": "1.0.0",
+  "description": "Sample application for the new Auth0 SPA SDK",
+  "main": "server.js",
+  "scripts": {
+    "start": "node bin/www",
+    "dev": "nodemon bin/www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "@zoomus/websdk": "^1.9.0",
+    "airtable": "^0.10.1",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.18.1",
+    "express-jwt": "^6.0.0",
+    "express-session": "^1.17.2",
+    "helmet": "^3.21.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^1.12.2",
+    "lib-jitsi-meet": "^1.0.6",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-auth0": "^1.4.2",
+    "pug": "^3.0.2",
+    "stripe": "^8.133.0"
+  }
+}
