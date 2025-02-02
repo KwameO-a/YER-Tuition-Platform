@@ -1,4 +1,6 @@
-**YER Tuition Services**
+# YER Tuition Platform
+
+## Overview
 The **YER Tuition Services** platform is an **online tuition system** designed to connect students, tutors, and administrators in a structured learning environment. The platform provides **course enrollment, tutor management, classroom scheduling, and secure payment processing**.
 
 ---
