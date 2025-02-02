@@ -1,45 +1,125 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
-
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
-
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+**YER Tuition Services**
+The **YER Tuition Services** platform is an **online tuition system** designed to connect students, tutors, and administrators in a structured learning environment. The platform provides **course enrollment, tutor management, classroom scheduling, and secure payment processing**.
 
 ---
 
-## Edit a file
+## **Features**
+### **For Students**
+- **Student Dashboard**: View enrolled courses, upcoming lessons, and class schedules.
+- **Course Enrollment**: Join **group or one-on-one** sessions in **various subjects**.
+- **Live Classroom**: Attend online lessons and interact with tutors.
+- **Progress Tracking**: Monitor class attendance and assignments.
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+### **For Tutors**
+- **Tutor Dashboard**: Manage assigned courses and upcoming classes.
+- **New Class Creation**: Set up courses with duration, mode, and subject details.
+- **Teaching Preferences**: Define **availability, subjects, and preferred teaching modes**.
+- **Secure Account Verification**: Email authentication for tutors.
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+### **For Administrators**
+- **Admin Dashboard**: Oversee **students, tutors, and courses**.
+- **Student & Tutor Management**: Assign courses, approve tutors, and monitor class schedules.
+- **Course Management**: Modify **course details, scheduling, and enrollments**.
+
+### **General Features**
+- **Secure Authentication**: User login and session management via **Auth0**.
+- **Payment Integration**: **Stripe API** for **tuition payments and subscriptions**.
+- **Privacy & Security**: **Data protection, access control, and session security**.
+- **Contact & Support**: Inquiry form for **student, tutor, and parent** inquiries.
 
 ---
 
-## Create a file
-
-Next, you’ll add a new file to this repository.
-
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
-
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+## **Tech Stack**
+- **Backend**: Node.js with Express.js  
+- **Frontend**: Pug templating engine  
+- **Database**: Airtable (for user and course data)  
+- **Authentication**: Auth0 with Passport.js  
+- **Security**: Helmet.js, Cookie Parser, and Morgan for logging  
+- **Payment Processing**: Stripe API  
 
 ---
 
-## Clone a repository
+## **Installation & Setup**
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+### **2. Install Dependencies**
+```bash
+npm install
+```
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+### **3. Set Up Environment Variables**
+Create a `.env` file in the root directory and add:
+```env
+AUTH0_DOMAIN=your-auth0-domain
+AUTH0_CLIENT_ID=your-client-id
+AUTH0_CLIENT_SECRET=your-client-secret
+AUTH0_CALLBACK_URL=http://localhost:3000/callback
+AIRTABLE_API_KEY=your-airtable-api-key
+AIRTABLE_BASE_ID=your-airtable-base-id
+STRIPE_SECRET_KEY=your-stripe-secret-key
+```
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+### **4. Run the Server**
+```bash
+npm start
+```
+The server will start at `http://localhost:3000`.
+
+---
+
+## **Project Structure**
+```
+/public             # Static assets (CSS, JS, Images)
+/views              # Pug templates for different users
+  ├── index.pug                    # Homepage
+  ├── about.pug                    # About the platform
+  ├── contact.pug                  # Contact page
+  ├── courses.pug                  # Course catalog
+  ├── login.pug                    # Login page
+  ├── password-reset.pug           # Password recovery page
+  ├── privacy.pug                  # Privacy policy
+  ├── terms-and-conditions.pug     # Terms & Conditions
+  ├── 404.pug                      # Custom error page
+  ├── student-dashboard.pug        # Student dashboard
+  ├── tutor-dashboard.pug          # Tutor dashboard
+  ├── admin-dashboard.pug          # Admin dashboard
+  ├── student-sign-up.pug          # Student registration
+  ├── tutor-sign-up.pug            # Tutor registration
+  ├── tutor-preferences.pug        # Tutor preferences setup
+  ├── verify-tutor.pug             # Tutor verification page
+  ├── classroom.pug                # Virtual classroom access
+  ├── course-details-group.pug     # Course details for group sessions
+  ├── course-details-single.pug    # Course details for individual classes
+  ├── tutor-preferences.html       # Tutor profile settings
+/server.js         # Main backend server
+/auth_config.json  # Auth0 configuration file
+```
+
+---
+
+## **Routes Overview**
+| Route | Description |
+|--------|------------|
+| `/` | Homepage with overview and CTA buttons |
+| `/about` | Information about the tuition platform |
+| `/courses` | Course catalog and details |
+| `/contact` | Contact form for inquiries |
+| `/login` | User login page |
+| `/password-reset` | Password recovery page |
+| `/privacy` | Privacy policy |
+| `/terms-and-conditions` | Service terms and conditions |
+| `/student/dashboard` | Student dashboard |
+| `/tutor/dashboard` | Tutor dashboard |
+| `/administrator/dashboard` | Admin dashboard |
+| `/student/signup` | Student registration |
+| `/tutor/signup` | Tutor registration |
+| `/tutor/preferences` | Tutor teaching preferences |
+| `/tutor/verify` | Tutor verification page |
+| `/student/classroom` | Virtual classroom access |
+| `/logout` | User logout |
+
+---
